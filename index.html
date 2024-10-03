@@ -18,10 +18,20 @@
 </ul>
   <br>
   <a href="mailto:ilya.biserinkin@gmail.com">Связаться со мной</a>
+  <script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+
+    // Get the element where you want to display the year
+    const yearElement = document.getElementById("year");
+
+    // Update the element's content with the current year
+    yearElement.textContent = currentYear; 
+  </script>
 <hr>
 © Ilja Bisserinkin
 <br>
-1989—2023
+1989—&copy; <span id="year"></span>
 <p>I'm hosted with GitHub Pages.</p>
 </body>
 </html>
