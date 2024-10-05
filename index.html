@@ -1,18 +1,42 @@
 <!DOCTYPE html>
-<html>
-<title>Personal webpage</title>
+<html lang="ru">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale="1">
+        <title>Personal webpage</title>
+    </head>
 <body style="background-color:#fafafa;">
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<!-- 
-  <p><ul>
-  <li><a href="writtenword/">Проза</a></li>
-  <li><a href="gallery/">Галерея</a></li>
-  <li><a href="gallery/">Связаться со мной</a></li>
-</ul> -->
+<h1>Things and stuff</h1>
+<h2>Проза</h2>
+<ul>
+  <li><a href="/zavihreniye/Zavihreniye.html">Завихрение, роман <b>(upd. 09/04/23)</b></a></li>
+  <li>Чайки, рассказ (2017)</li>
+  <li><a href="/writtenword/Meta_ubiyca.html">Мета-убийца, рассказ (2017)</a></li>
+  <li>Стрим, рассказ (2019)</li>
+  <li>Циклист, повесть (2024)</li>
+  <li><a href="/writtenword/Smert_na_volnah.html">Смерть на волнах, рассказ (2020)</a></li>
+  <li>Безымянное место, рассказ (2025?)</li>
+  <li>Инерция, повесть (2025?)</li>
+</ul>
+  <br>
+  <a href="mailto:ilya.biserinkin@gmail.com">Связаться со мной</a>
+<footer>
 <hr>
-© Ilja Bisserinkin
+ &copy; Ilja Bisserinkin
 <br>
-1989—2022
+1989—<span id="year"></span>
+<p>I'm hosted with GitHub Pages.</p>
+</footer>
+
+  <script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+
+    // Get the element where you want to display the year
+    const yearElement = document.getElementById("year");
+
+    // Update the element's content with the current year
+    yearElement.textContent = currentYear; 
+  </script>
+
 </body>
 </html>
