@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-      <meta name="viewport" content="width=device-width, initial-scale="1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Personal webpage</title>
+          <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box; /* Include padding in element's total width */
+    }
+
+    @media (max-width: 768px) {
+      .column {
+        flex: 1 1 100%; /* Each column takes full width on smaller screens */
+      }
+    }
+  </style>
     </head>
 <body style="background-color:#fafafa;">
+<div class="container">
+<div class="column">
 <h1>Things and stuff</h1>
 <h2>Проза</h2>
 <ul>
@@ -37,6 +64,6 @@
     // Update the element's content with the current year
     yearElement.textContent = currentYear; 
   </script>
-
+</div>
 </body>
 </html>
