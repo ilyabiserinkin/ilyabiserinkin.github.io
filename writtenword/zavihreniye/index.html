@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal webpage / Завихрение, роман</title>
+          <style>
+@font-face {
+  font-family: 'Gentium Book Plus';
+  src: url('https://ilyabiserinkin.ee/fonts/GentiumBookPlus-Regular.woff2') format('woff2'),
+       url('https://ilyabiserinkin.ee/fonts/GentiumBookPlus-Regular.woff') format('woff'),
+       url('https://ilyabiserinkin.ee/fonts/GentiumBookPlus-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+    body {
+      font-family: 'Gentium Book Plus', serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      padding: 5px;
+      box-sizing: border-box; /* Include padding in element's total width */
+    }
+
+    @media (max-width: 768px) {
+      .column {
+        flex: 1 1 100%; /* Each column takes full width on smaller screens */
+      }
+    }
+  </style>
+    </head>
+<body style="background-color:#fafafa;">
+<div class="container">
+<div class="column">
+<h2>Завихрение / роман (2016-2025)</h2>
+<ul>
+  <li><a href="/zavihreniye/chapter_1.html">Часть первая - "Приземление в красной тени"</a></li>
+  <li><a href="/zavihreniye/chapter_2.html">Часть вторая - "Человек дела"</a></li>
+  <li><a href="/writtenword/chapter_3.html">Часть третья - "Партнеры по преступлению"</a></li>
+  <li><a href="#">Часть четвертая - "Мечты о лучшей жизни"</a></li>
+  <li><a href="#">Часть пятая - "Тепловая смерть"</a></li>
+  <li><a href="#">Часть шестая - "Развертка сферы"</a></li>
+  <li><a href="#">Часть седьмая - "Жар-птица"</a></li>
+</ul>
+  <br>
+    <a href="https://ilyabiserinkin.ee/index.html">← Назад</a>
+    <p>
+  <a href="mailto:ilya.biserinkin@gmail.com">Contact me</a></p>
+<footer>
+<hr>
+ &copy; Ilja Bisserinkin
+<br>
+1989—<span id="year"></span>
+<p>I'm hosted with GitHub Pages.</p>
+</footer>
+
+  <script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+
+    // Get the element where you want to display the year
+    const yearElement = document.getElementById("year");
+
+    // Update the element's content with the current year
+    yearElement.textContent = currentYear; 
+  </script>
+</div>
+</body>
+</html>
