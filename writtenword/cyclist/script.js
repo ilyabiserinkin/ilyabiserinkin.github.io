@@ -21,6 +21,7 @@ function loadChapter(chapterNumber) {
             }
 
             updateButtonStates(); // Update button states after loading
+            window.scrollTo(0, 0); // Scroll to top (instant)
         })
       .catch(error => {
             console.error("Error loading chapter:", error);
@@ -37,6 +38,7 @@ function loadSubchapter(subchapterFilename) {
             displayContent(subchapterData.paragraphs);
             document.getElementById('chapter-subtitle').textContent = subchapterData.title;
             updateButtonStates();
+            window.scrollTo(0, 0); // Scroll to top (instant)
         })
       .catch(error => {
             console.error("Error loading subchapter:", error);
