@@ -1,7 +1,7 @@
 let currentChapter = 1;
 
 function loadChapter(chapterNumber) {
-  fetch(`chapter${chapterNumber}.json`)
+  fetch(`chapters/chapter${chapterNumber}.json`)
     .then(response => response.json())
     .then(chapterData => {
       document.getElementById('chapter-title').textContent = chapterData.title;
