@@ -2,7 +2,7 @@ let currentChapter = 1;
 let currentSubchapter = 0; // Start with the first subchapter
 
 function loadChapter(chapterNumber) {
-  fetch(`chapter${chapterNumber}.json`)
+  fetch(`chapters/chapter${chapterNumber}.json`)
   .then(response => response.json())
   .then(chapterData => {
       document.getElementById('chapter-title').textContent = chapterData.title;
@@ -35,7 +35,7 @@ document.getElementById('next-chapter').addEventListener('click', () => {
 
 document.getElementById('next-subsection').addEventListener('click', () => {
     // Check if there are more subchapters in the current chapter
-    fetch(`chapter${currentChapter}.json`)
+    fetch(`chapters/chapter${currentChapter}.json`)
       .then(response => response.json())
       .then(chapterData => {
             if (currentSubchapter < chapterData.subchapters.length - 1) {
