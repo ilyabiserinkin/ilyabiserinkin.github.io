@@ -1,35 +1,54 @@
 let currentChapter = 1;
+let currentSubchapter = 0; // Start with the first subchapter
 
 function loadChapter(chapterNumber) {
-  fetch(`chapters/chapter${chapterNumber}.json`)
-    .then(response => response.json())
-    .then(chapterData => {
+  fetch(`chapter${chapterNumber}.json`)
+  .then(response => response.json())
+  .then(chapterData => {
       document.getElementById('chapter-title').textContent = chapterData.title;
-      const chapterContentDiv = document.getElementById('chapter-content');
-      chapterContentDiv.innerHTML = ''; // Clear previous content
-
-      chapterData.paragraphs.forEach(paragraph => {
-        const paragraphElement = document.createElement('p');
-        paragraphElement.textContent = paragraph;
-        chapterContentDiv.appendChild(paragraphElement);
-      });
-
-      // Update button states
-      document.getElementById('prev-button').disabled = (chapterNumber === 1);
-      document.getElementById('next-button').disabled = (chapterNumber === totalChapters); // Assuming you have a `totalChapters` variable
+      loadSubchapter(chapterData.subchapters[currentSubchapter]); // Load the first subchapter
     });
 }
 
-// Event listeners for buttons
-document.getElementById('prev-button').addEventListener('click', () => {
-  currentChapter--;
-  loadChapter(currentChapter);
+function loadSubchapter(subchapterFilename) {
+  fetch(subchapterFilename)
+  .then(response => response.json())
+  .then(subchapterData => {
+      document.getElementById('chapter-content').innerHTML = ''; // Clear existing content
+      subchapterData.paragraphs.forEach(paragraph => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        document.getElementById('chapter-content').appendChild(p);
+      });
+        document.getElementById('chapter-subtitle').textContent = subchapterData.title;
+
+    });
+}
+
+
+// Event listeners for navigation buttons (example)
+document.getElementById('next-chapter').addEventListener('click', () => {
+    currentChapter++;
+    currentSubchapter = 0; // Reset subchapter to 0 for the new chapter
+    loadChapter(currentChapter);
 });
 
-document.getElementById('next-button').addEventListener('click', () => {
-  currentChapter++;
-  loadChapter(currentChapter);
+document.getElementById('next-subsection').addEventListener('click', () => {
+    // Check if there are more subchapters in the current chapter
+    fetch(`chapter${currentChapter}.json`)
+      .then(response => response.json())
+      .then(chapterData => {
+            if (currentSubchapter < chapterData.subchapters.length - 1) {
+                currentSubchapter++;
+                loadSubchapter(chapterData.subchapters[currentSubchapter]);
+            } else {
+                // Optionally, handle the case where there are no more subchapters
+                alert("No more subchapters in this chapter.");
+            }
+        });
 });
 
-// Initial chapter load
+
+
+// Initial load
 loadChapter(currentChapter);
