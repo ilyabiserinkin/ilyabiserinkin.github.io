@@ -32,6 +32,12 @@ a:hover {
   margin: 0 auto;
 }
 
+#story-title {
+    text-align: center; 
+    font-size: 1.8rem; 
+    margin-bottom: 1rem;
+}
+
 img {
   max-width: 100%;
   height: auto;
