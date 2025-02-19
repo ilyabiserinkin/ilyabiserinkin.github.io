@@ -4,6 +4,7 @@ function loadStory() {
   .then(storyData => {
       document.getElementById('story-title').textContent = storyData.title;
       displayContent(storyData.content);
+      window.scrollTo(0, 0); // Scroll to top after content is loaded
     })
   .catch(error => {
       console.error("Error loading story:", error);
@@ -18,13 +19,11 @@ function displayContent(content) {
   if (Array.isArray(content)) {
     content.forEach(paragraph => {
       const p = document.createElement('p');
-      p.textContent = paragraph; // No hyphenation
+      p.innerHTML = paragraph; // Use innerHTML to render HTML tags
       storyContentDiv.appendChild(p);
     });
   } else if (typeof content === 'string') {
-    const p = document.createElement('p');
-    p.textContent = content; // No hyphenation
-    storyContentDiv.appendChild(p);
+    storyContentDiv.innerHTML = content; // Use innerHTML for the whole content
   } else {
     storyContentDiv.innerHTML = "<p>Invalid content format.</p>";
   }
